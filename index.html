@@ -22,7 +22,7 @@
         header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
         .header-in { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
         .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-img { height: 48px; width: auto; object-fit: contain; }
+        .logo-img { height: 48px; width: auto; max-width: 180px; object-fit: contain; }
         .logo-text { font-size: 22px; font-weight: bold; color: var(--dark-blue); }
 
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
@@ -30,7 +30,7 @@
         nav a.active, nav a:hover { color: var(--primary-blue); }
         .btn-nav { background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); color: var(--white) !important; padding: 10px 20px; border-radius: 25px; }
 
-        /* 👑 刷新版 ヒーローセクション 👑 */
+        /* ヒーローセクション */
         .hero {
             position: relative;
             background: radial-gradient(circle at top right, #E0F7FA 0%, #EBF8FF 50%, #F4F8FA 100%);
@@ -45,8 +45,6 @@
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
 
         .badge {
@@ -83,12 +81,6 @@
             line-height: 1.7;
         }
 
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
         .btn-primary {
             background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
             color: var(--white);
@@ -99,14 +91,9 @@
             font-size: 16px;
             display: inline-block;
             box-shadow: 0 6px 20px rgba(0,114,206,0.3);
-            transition: transform 0.2s;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-        }
-
-        /* マルトくん（キャラクター）特別カード */
+        /* キャラクターカード */
         .mascot-hero-card {
             background: var(--white);
             border-radius: 24px;
@@ -138,30 +125,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
 
         .mascot-img {
             max-width: 140px;
-            height: auto;
+            max-height: 140px;
+            object-fit: contain;
         }
 
-        .mascot-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--dark-blue);
-        }
+        .mascot-title { font-size: 20px; font-weight: bold; color: var(--dark-blue); }
+        .mascot-speech { background: #F4F8FA; padding: 10px 15px; border-radius: 10px; font-size: 13px; color: #4A5568; margin-top: 12px; }
 
-        .mascot-speech {
-            background: #F4F8FA;
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-size: 13px;
-            color: #4A5568;
-            margin-top: 12px;
-            font-weight: 500;
-        }
-
-        /* コンテンツエリア */
         .sec { max-width: 1100px; margin: 80px auto; padding: 0 20px; }
         .sec-title { text-align: center; font-size: 28px; color: var(--dark-blue); margin-bottom: 40px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
@@ -171,7 +146,6 @@
 
         @media(max-width:768px) {
             .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-btns { justify-content: center; }
             nav ul { display: none; }
         }
     </style>
@@ -181,8 +155,8 @@
     <header>
         <div class="header-in">
             <a href="index.html" class="logo-area">
-                <img src="logo.png" alt="まるっとオフィス ロゴ" class="logo-img">
-                <span class="logo-text">まるっとオフィス</span>
+                <!-- 画像が見つからない場合は自動的にテキスト表示へ切替 -->
+                <img src="logo.png" alt="まるっとオフィス" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/0072CE/FFFFFF?text=まるっとオフィス';">
             </a>
             <nav>
                 <ul>
@@ -195,7 +169,6 @@
         </div>
     </header>
 
-    <!-- 👑 刷新版 ヒーローセクション 👑 -->
     <section class="hero">
         <div class="hero-container">
             <div>
@@ -205,7 +178,7 @@
                     契約・経理・データ整理に追われる毎日を終わりにしませんか？<br>
                     まるっとオフィスがバックオフィスをまるごとサポート。あなたは「本来の仕事」と「練習」だけに集中できます！
                 </p>
-                <div class="hero-btns">
+                <div>
                     <a href="contact.html" class="btn-primary">今すぐ無料相談してみる ➔</a>
                 </div>
             </div>
@@ -213,7 +186,7 @@
                 <div class="mascot-hero-card">
                     <span class="mascot-badge">公式キャラ</span>
                     <div class="mascot-img-wrap">
-                        <img src="mascot.png" alt="マルトくん" class="mascot-img">
+                        <img src="mascot.png" alt="マルトくん" class="mascot-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/150/00A3C4/FFFFFF?text=マルトくん';">
                     </div>
                     <div class="mascot-title">マルトくん</div>
                     <div class="mascot-speech">「事務手続きやお金の管理、僕たちにまるっと預けてね！」</div>
