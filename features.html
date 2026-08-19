@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メリット・デメリット | まるっとオフィス</title>
+    <style>
+        :root { --primary-blue: #0072CE; --primary-cyan: #00A3C4; --dark-blue: #0A2540; --bg-light: #F4F8FA; --text-color: #2D3748; --white: #FFFFFF; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-color); background: var(--bg-light); line-height: 1.6; }
+
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .header-in { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 48px; width: auto; object-fit: contain; }
+        .logo-text { font-size: 22px; font-weight: bold; color: var(--dark-blue); }
+
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav a { text-decoration: none; color: var(--text-color); font-weight: bold; font-size: 15px; }
+        nav a.active { color: var(--primary-blue); }
+        .btn-nav { background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); color: var(--white) !important; padding: 10px 20px; border-radius: 25px; }
+
+        .page-banner { background: var(--dark-blue); color: var(--white); text-align: center; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+
+        .card-pros { background: var(--white); border-radius: 16px; padding: 30px; border-top: 6px solid #10B981; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+        .card-cons { background: var(--white); border-radius: 16px; padding: 30px; border-top: 6px solid #EF4444; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+
+        .title-pros { color: #059669; font-size: 20px; margin-bottom: 20px; font-weight: bold; }
+        .title-cons { color: #DC2626; font-size: 20px; margin-bottom: 20px; font-weight: bold; }
+
+        ul { list-style: none; }
+        li { margin-bottom: 18px; font-size: 14px; }
+        li strong { display: block; font-size: 16px; color: var(--dark-blue); margin-bottom: 2px; }
+
+        footer { background: var(--dark-blue); color: #A0AEC0; text-align: center; padding: 30px 20px; font-size: 14px; margin-top: 80px; }
+
+        @media(max-width:768px){ .container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-in">
+            <a href="index.html" class="logo-area">
+                <img src="logo.png" alt="まるっとオフィス ロゴ" class="logo-img">
+                <span class="logo-text">まるっとオフィス</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="services.html">サービス内容</a></li>
+                    <li><a href="features.html" class="active">メリット・デメリット</a></li>
+                    <li><a href="contact.html" class="btn-nav">無料相談</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-banner">
+        <h1>メリット・デメリット</h1>
+        <p>サービスをご利用いただく上での特徴（各5選）</p>
+    </div>
+
+    <div class="container">
+        <div class="card-pros">
+            <div class="title-pros">👍 5つのメリット</div>
+            <ul>
+                <li>
+                    <strong>1. 得意な「本業」に集中できる</strong>
+                    面倒なお金の手計算や書類作りをしなくていいので、自分の練習やメインのお仕事だけに集中できます。
+                </li>
+                <li>
+                    <strong>2. ミスの心配がなくなって安心できる</strong>
+                    税金や手続きをプロが代行するため、書き忘れや計算ミスを防げます。
+                </li>
+                <li>
+                    <strong>3. 疲れにくくなりしっかり休める</strong>
+                    「夜遅くまで書類作り…」がなくなり、毎日元気に過ごせます。
+                </li>
+                <li>
+                    <strong>4. 社員を1人雇うよりお金がかからない</strong>
+                    頼みたい分だけ利用できるので、人件費などの無駄な出費を減らせます。
+                </li>
+                <li>
+                    <strong>5. プロから役立つアドバイスがもらえる</strong>
+                    「こうすれば時間や費用を節約できますよ」という知識を教えてもらえます。
+                </li>
+            </ul>
+        </div>
+
+        <div class="card-cons">
+            <div class="title-cons">⚠️ 5つの注意点（デメリット）</div>
+            <ul>
+                <li>
+                    <strong>1. サポート費用が発生する</strong>
+                    自分でやればタダですが、プロに頼むと利用料がかかります。
+                </li>
+                <li>
+                    <strong>2. 最初にやり方を伝える手間がある</strong>
+                    「普段どういうやり方をしているか」を伝えるために最初の打合せが必要です。
+                </li>
+                <li>
+                    <strong>3. 大切な情報を預ける必要がある</strong>
+                    銀行口座や個人的な連絡先を預けるため信頼できる関係構築が必要です。
+                </li>
+                <li>
+                    <strong>4. 自分自身が事務に詳しくならなくなる</strong>
+                    全部おまかせにすると、自分で書類を作るスキルが身につきにくくなります。
+                </li>
+                <li>
+                    <strong>5. 返事がくるまでに少し時間がかかる</strong>
+                    頼んでから終わるまでに、連絡のやりとりなどで少しタイムラグが発生します。
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 まるっとオフィス All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
