@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>料金プラン | まるっとオフィス</title>
+    <style>
+        :root {
+            --primary-blue: #0072CE;
+            --primary-cyan: #00A3C4;
+            --dark-blue: #0A2540;
+            --bg-light: #F4F8FA;
+            --text-color: #2D3748;
+            --white: #FFFFFF;
+            --accent-yellow: #FFC72C;
+            --accent-red: #E53E3E;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-color); background: var(--bg-light); line-height: 1.6; }
+
+        /* ヘッダー */
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .header-in { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 48px; width: auto; max-width: 180px; object-fit: contain; }
+
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav a { text-decoration: none; color: var(--text-color); font-weight: bold; font-size: 15px; }
+        nav a.active, nav a:hover { color: var(--primary-blue); }
+        .btn-nav { background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); color: var(--white) !important; padding: 10px 20px; border-radius: 25px; }
+
+        .page-banner { background: var(--dark-blue); color: var(--white); text-align: center; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+
+        /* 安心保証バナー（契約ハードルを下げる） */
+        .guarantee-bar {
+            background: #EBF8FF;
+            border: 2px dashed var(--primary-cyan);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+            text-align: center;
+        }
+        .guarantee-item { font-weight: bold; color: var(--dark-blue); font-size: 14px; }
+        .guarantee-item span { color: var(--primary-blue); margin-right: 5px; }
+
+        /* 料金カード（松竹梅：プレミアム ➔ スタンダード ➔ ライト順） */
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 60px; align-items: flex-start; }
+        .price-card { background: var(--white); border-radius: 20px; padding: 35px 25px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 2px solid #E2E8F0; position: relative; }
+        
+        /* スタンダード（一番人気）の特別強調デザイン */
+        .price-card.popular { 
+            border: 3px solid var(--primary-blue); 
+            transform: scale(1.04); 
+            box-shadow: 0 10px 30px rgba(0,114,206,0.15); 
+            background: linear-gradient(to bottom, #FFFFFF 0%, #F0F9FF 100%);
+        }
+        .popular-badge { 
+            position: absolute; 
+            top: -16px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            background: var(--accent-yellow); 
+            color: var(--dark-blue); 
+            font-size: 13px; 
+            font-weight: 800; 
+            padding: 6px 20px; 
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            white-space: nowrap;
+        }
+
+        /* ターゲットラベル */
+        .target-label {
+            display: inline-block;
+            background: #EDF2F7;
+            color: #4A5568;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+        .price-card.popular .target-label {
+            background: #EBF8FF;
+            color: var(--primary-blue);
+        }
+
+        .plan-name { font-size: 22px; font-weight: bold; color: var(--dark-blue); margin-bottom: 5px; }
+        
+        /* 価格・日換算表示 */
+        .plan-price-wrap { margin: 15px 0 20px; }
+        .original-price { font-size: 13px; color: #A0AEC0; text-decoration: line-through; font-weight: bold; }
+        .plan-price { font-size: 38px; font-weight: 800; color: var(--dark-blue); line-height: 1; }
+        .price-card.popular .plan-price { color: var(--primary-blue); }
+        .plan-price span { font-size: 14px; color: #718096; font-weight: normal; }
+        .daily-price { font-size: 13px; font-weight: bold; color: var(--accent-red); margin-top: 6px; }
+
+        .plan-features { list-style: none; text-align: left; margin-bottom: 30px; }
+        .plan-features li { padding: 10px 0; border-bottom: 1px solid #EDF2F7; font-size: 14px; }
+        .plan-features li::before { content: "✔ "; color: var(--primary-cyan); font-weight: bold; }
+
+        /* CTAボタン */
+        .btn-plan { display: block; background: var(--bg-light); color: var(--dark-blue); font-weight: bold; padding: 14px; border-radius: 30px; text-decoration: none; border: 1px solid #CBD5E0; transition: all 0.2s; }
+        .btn-plan:hover { background: #E2E8F0; }
+        .price-card.popular .btn-plan { 
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); 
+            color: var(--white); 
+            border: none; 
+            box-shadow: 0 6px 18px rgba(0,114,206,0.35); 
+        }
+        .price-card.popular .btn-plan:hover { transform: translateY(-2px); opacity: 0.95; }
+
+        /* FAQ */
+        .faq-sec { max-width: 800px; margin: 0 auto; }
+        .faq-title { text-align: center; font-size: 26px; color: var(--dark-blue); margin-bottom: 30px; }
+        .faq-item { background: var(--white); border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .faq-q { font-weight: bold; color: var(--primary-blue); margin-bottom: 8px; font-size: 16px; }
+        .faq-a { font-size: 14px; color: #4A5568; line-height: 1.7; }
+
+        footer { background: var(--dark-blue); color: #A0AEC0; text-align: center; padding: 30px 20px; font-size: 14px; margin-top: 80px; }
+
+        @media(max-width:768px) {
+            .price-card.popular { transform: none; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-in">
+            <a href="index.html" class="logo-area">
+                <img src="logo.png" alt="まるっとオフィス" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x50/0072CE/FFFFFF?text=まるっとオフィス';">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="services.html">サービス内容</a></li>
+                    <li><a href="features.html">メリット・デメリット</a></li>
+                    <li><a href="pricing.html" class="active">料金プラン</a></li>
+                    <li><a href="contact.html" class="btn-nav">無料相談</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-banner">
+        <h1>明朗会計な料金プラン</h1>
+        <p>追加費用ゼロ！あなたのフェーズに合わせて選べる安心の定額制</p>
+    </div>
+
+    <div class="container">
+
+        <!-- 心理的ハードルを下げる安心保証バナー -->
+        <div class="guarantee-bar">
+            <div class="guarantee-item"><span>🛡️</span>初期費用・解約金 0円</div>
+            <div class="guarantee-item"><span>🔄</span>いつでもプラン変更可能</div>
+            <div class="guarantee-item"><span>定額</span>追加の隠れ費用一切なし</div>
+        </div>
+
+        <div class="price-grid">
+            
+            <!-- 1. プレミアムプラン（松：アンカー用） -->
+            <div class="price-card">
+                <span class="target-label">スポンサー交渉・フル代行を頼みたい方</span>
+                <div class="plan-name">プレミアムプラン</div>
+                <div class="plan-price-wrap">
+                    <div class="plan-price">¥50,000〜 <span>/ 月（税込）</span></div>
+                    <div class="daily-price">専用のバックオフィスチームを結成</div>
+                </div>
+                <ul class="plan-features">
+                    <li>件数無制限の領収書・経理代行</li>
+                    <li>スポンサー契約・申請手続き代行</li>
+                    <li>専任の担当者が即日〜翌日優先対応</li>
+                    <li>オーダーメイドの事務構築サポート</li>
+                </ul>
+                <a href="contact.html" class="btn-plan">お問い合わせ・見積もり</a>
+            </div>
+
+            <!-- 2. スタンダードプラン（竹：一番人気・お得感最大化） -->
+            <div class="price-card popular">
+                <span class="popular-badge">👑 迷ったらコレ！圧倒的No.1</span>
+                <span class="target-label">本業・練習に100%集中したい方</span>
+                <div class="plan-name">スタンダードプラン</div>
+                
+                <div class="plan-price-wrap">
+                    <div class="original-price">通常相当価格：月額50,000円</div>
+                    <div class="plan-price">¥30,000 <span>/ 月（税込）</span></div>
+                    <div class="daily-price">🔥 1日あたり たったの約1,000円！</div>
+                </div>
+
+                <ul class="plan-features">
+                    <li>月150件までの領収書整理・入力</li>
+                    <li>契約書・各種提出書類の作成サポート</li>
+                    <li>確定申告用データの事前準備・丸投げOK</li>
+                    <li>優先チャット＆電話サポート</li>
+                    <li>マルトくんの月次オンライン面談</li>
+                </ul>
+                <a href="contact.html" class="btn-plan">一番人気のプランで無料相談 ➔</a>
+            </div>
+
+            <!-- 3. ライトプラン（梅：お試し用） -->
+            <div class="price-card">
+                <span class="target-label">まずは最低限の経理だけ任せたい方</span>
+                <div class="plan-name">ライトプラン</div>
+                <div class="plan-price-wrap">
+                    <div class="plan-price">¥15,000 <span>/ 月（税込）</span></div>
+                    <div class="daily-price">1日あたり 約500円でお手軽スタート</div>
+                </div>
+                <ul class="plan-features">
+                    <li>月50件までの領収書整理・入力</li>
+                    <li>基本データのお預かり・保管</li>
+                    <li>メール・チャットサポート</li>
+                    <li>毎月の簡易収支レポート発行</li>
+                </ul>
+                <a href="contact.html" class="btn-plan">このプランで相談する</a>
+            </div>
+
+        </div>
+
+        <!-- よくある質問（不安の最終払拭） -->
+        <div class="faq-sec">
+            <h2 class="faq-title">料金に関するよくある質問</h2>
+            
+            <div class="faq-item">
+                <div class="faq-q">Q. オフシーズンなど、月途中でプラン変更は可能ですか？</div>
+                <div class="faq-a">はい、可能です！大会シーズンや繁忙期に合わせて「今月はスタンダード、来月はライト」といった調整が前月のご連絡でいつでも自由に行えます。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Q. 本当に初期費用や解約金はかかりませんか？</div>
+                <div class="faq-a">一切かかりません。契約期間の「縛り」もございませんので、必要な期間だけ安心してお使いいただけます。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Q. 自分にどのプランが合うかわかりません。</div>
+                <div class="faq-a">現在の領収書の枚数や「どこまで任せたいか」を無料相談でヒアリングし、無理のない最適なプランをご提案いたします。強引な勧誘は一切ありませんのでご安心ください。</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 まるっとオフィス All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
