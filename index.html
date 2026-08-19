@@ -16,134 +16,180 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-color); background: var(--bg-light); line-height: 1.6; }
+        body { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; color: var(--text-color); background: #FFFFFF; line-height: 1.6; }
 
         /* ヘッダー */
         header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
         .header-in { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-text { font-size: 22px; font-weight: bold; color: var(--dark-blue); }
+        
+        .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img-header { height: 40px; width: auto; object-fit: contain; }
+        .logo-text { font-size: 20px; font-weight: 800; color: var(--dark-blue); }
 
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
         nav a { text-decoration: none; color: var(--text-color); font-weight: bold; font-size: 15px; }
         nav a.active, nav a:hover { color: var(--primary-blue); }
-        .btn-nav { background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); color: var(--white) !important; padding: 10px 20px; border-radius: 25px; }
+        .btn-nav { background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); color: var(--white) !important; padding: 10px 22px; border-radius: 25px; }
 
-        /* ヒーローセクション */
+        /* 👑 キービジュアル忠実再現 ヒーローセクション 👑 */
         .hero {
             position: relative;
-            background: radial-gradient(circle at top right, #E0F7FA 0%, #EBF8FF 50%, #F4F8FA 100%);
-            padding: 80px 20px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #E3F2FD 60%, #0072CE 100%);
+            padding: 40px 20px 0;
             overflow: hidden;
         }
-        
-        .hero-container {
+
+        .hero-inner {
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--white);
-            color: var(--primary-blue);
-            font-weight: bold;
-            font-size: 14px;
-            padding: 6px 16px;
-            border-radius: 20px;
-            box-shadow: 0 2px 8px rgba(0,114,206,0.15);
-            margin-bottom: 20px;
-            border: 1px solid #BEE3F8;
-        }
-
-        .hero-title {
-            font-size: 42px;
-            color: var(--dark-blue);
-            margin-bottom: 20px;
-            line-height: 1.25;
-            font-weight: 800;
-        }
-
-        .hero-title .highlight {
-            background: linear-gradient(120deg, var(--primary-cyan), var(--primary-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-desc {
-            font-size: 17px;
-            color: #4A5568;
-            margin-bottom: 35px;
-            line-height: 1.7;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
-            color: var(--white);
-            padding: 16px 36px;
-            border-radius: 35px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-            display: inline-block;
-            box-shadow: 0 6px 20px rgba(0,114,206,0.3);
-        }
-
-        /* ヒーローのロゴ挿絵カード */
-        .logo-hero-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,114,206,0.12);
-            border: 3px solid #EBF8FF;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 20px;
+            align-items: flex-end;
             position: relative;
+            z-index: 2;
+        }
+
+        .hero-left {
+            padding-bottom: 50px;
+        }
+
+        /* 画像左上の「まるっとオフィス」ロゴ＋テキスト配置 */
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .hero-logo-img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .hero-brand-text {
+            font-size: 34px;
+            font-weight: 900;
+            color: var(--dark-blue);
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+        }
+
+        /* 画像そのままの迫力あるキャッチコピー */
+        .hero-copy {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--dark-blue);
+            line-height: 1.3;
+            margin-bottom: 35px;
+            letter-spacing: -1px;
+        }
+
+        .hero-copy .highlight {
+            color: var(--primary-blue);
+        }
+
+        /* 3つの円形機能アイコン */
+        .hero-services {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .service-circle {
+            background: var(--white);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 6px 16px rgba(0, 114, 206, 0.12);
+            text-align: center;
+            padding: 8px;
         }
 
-        .logo-badge {
-            position: absolute;
-            top: -15px;
-            right: 20px;
+        .service-circle svg {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 4px;
+            fill: none;
+            stroke: var(--primary-blue);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-circle span {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--dark-blue);
+            line-height: 1.25;
+        }
+
+        /* 画像下部のカプセル枠（角丸白枠） */
+        .capsule-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid var(--white);
+            color: var(--white);
+            font-size: 15px;
+            font-weight: 800;
+            padding: 10px 24px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* 右側キャラクター（マルトくん）表示 */
+        .hero-right {
+            text-align: center;
+        }
+
+        .mascot-hero-img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            vertical-align: bottom;
+            object-fit: contain;
+        }
+
+        /* 下部コンバージョン（相談ボタン） */
+        .hero-action {
+            background: var(--primary-blue);
+            text-align: center;
+            padding: 25px 20px 45px;
+        }
+
+        .btn-cta {
             background: var(--accent-yellow);
             color: var(--dark-blue);
-            font-size: 12px;
-            font-weight: bold;
-            padding: 4px 12px;
-            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 900;
+            padding: 16px 48px;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+            transition: transform 0.2s;
         }
 
-        .logo-svg-wrap {
-            width: 200px;
-            height: 200px;
-            margin-bottom: 15px;
-        }
+        .btn-cta:hover { transform: scale(1.03); }
 
-        .logo-speech {
-            background: #F4F8FA;
-            padding: 12px 18px;
-            border-radius: 12px;
-            font-size: 14px;
-            color: #4A5568;
-            font-weight: bold;
-        }
-
-        /* コンテンツ */
-        .sec { max-width: 1100px; margin: 80px auto; padding: 0 20px; }
-        .sec-title { text-align: center; font-size: 28px; color: var(--dark-blue); margin-bottom: 40px; }
+        /* 下部コンテンツ */
+        .sec { max-width: 1100px; margin: 70px auto; padding: 0 20px; }
+        .sec-title { text-align: center; font-size: 28px; color: var(--dark-blue); margin-bottom: 40px; font-weight: 800; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { background: var(--white); padding: 30px; border-radius: 16px; border-top: 5px solid var(--primary-cyan); box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .card { background: #F4F8FA; padding: 30px; border-radius: 16px; border-top: 5px solid var(--primary-cyan); box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
 
-        footer { background: var(--dark-blue); color: #A0AEC0; text-align: center; padding: 30px 20px; font-size: 14px; margin-top: 80px; }
+        footer { background: var(--dark-blue); color: #A0AEC0; text-align: center; padding: 30px 20px; font-size: 14px; }
 
-        @media(max-width:768px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
+        @media(max-width:850px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero-brand, .hero-services { justify-content: center; }
+            .hero-copy { font-size: 34px; }
+            .hero-left { padding-bottom: 20px; }
             nav ul { display: none; }
         }
     </style>
@@ -153,19 +199,7 @@
     <header>
         <div class="header-in">
             <a href="index.html" class="logo-area">
-                <!-- SVGによる絶対化けないロゴマーク（ヘッダー用） -->
-                <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 80 20 A 42 42 0 1 0 85 75" stroke="url(#cyanBlue)" stroke-width="8" stroke-linecap="round"/>
-                    <path d="M 50 78 C 65 78 80 72 85 62 A 5 5 0 0 0 78 55 C 70 62 60 65 50 65" fill="#0072CE"/>
-                    <text x="40" y="58" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="40" fill="#0A2540" text-anchor="middle">ま</text>
-                    <polygon points="75,12 78,18 84,18 79,22 81,28 75,24 69,28 71,22 66,18 72,18" fill="#FFC72C"/>
-                    <defs>
-                        <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#00A3C4" />
-                            <stop offset="100%" stop-color="#0072CE" />
-                        </linearGradient>
-                    </defs>
-                </svg>
+                <img src="logo.png" alt="ロゴ" class="logo-img-header" onerror="this.style.display='none'">
                 <span class="logo-text">まるっとオフィス</span>
             </a>
             <nav>
@@ -180,66 +214,73 @@
         </div>
     </header>
 
+    <!-- 👑 キービジュアル完全再現 👑 -->
     <section class="hero">
-        <div class="hero-container">
-            <div>
-                <span class="badge">✨ アスリート・個人事業主の強い味方</span>
-                <h1 class="hero-title">面倒な事務作業、<br><span class="highlight">まるっとおまかせ！</span></h1>
-                <p class="hero-desc">
-                    契約・経理・データ整理に追われる毎日を終わりにしませんか？<br>
-                    まるっとオフィスがバックオフィスをまるごとサポート。あなたは「本来の仕事」と「練習」だけに集中できます！
-                </p>
-                <div>
-                    <a href="contact.html" class="btn-primary">今すぐ無料相談してみる ➔</a>
+        <div class="hero-inner">
+            <div class="hero-left">
+                
+                <!-- ロゴ＋まるっとオフィス -->
+                <div class="hero-brand">
+                    <img src="logo.png" alt="まるっとオフィス ロゴ" class="hero-logo-img">
+                    <div class="hero-brand-text">まるっと<br>オフィス</div>
                 </div>
-            </div>
-            <div>
-                <!-- ヒーロー挿絵用SVGコード -->
-                <div class="logo-hero-card">
-                    <span class="logo-badge">OFFICIAL LOGO</span>
-                    <div class="logo-svg-wrap">
-                        <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- グラデーション円環 -->
-                            <path d="M 80 20 A 42 42 0 1 0 85 75" stroke="url(#cyanBlueHero)" stroke-width="7" stroke-linecap="round"/>
-                            <!-- 手のモチーフ -->
-                            <path d="M 45 78 C 65 78 80 72 85 62 A 5 5 0 0 0 78 55 C 70 62 60 65 50 65" fill="#0072CE"/>
-                            <!-- 「ま」の文字 -->
-                            <text x="42" y="60" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="44" fill="#0A2540" text-anchor="middle">ま</text>
-                            <!-- 書類アイコン -->
-                            <rect x="62" y="48" width="18" height="22" rx="3" fill="#00A3C4"/>
-                            <line x1="66" y1="53" x2="75" y2="53" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="66" y1="58" x2="75" y2="58" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="66" y1="63" x2="72" y2="63" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                            <!-- キラキラモチーフ -->
-                            <polygon points="76,12 79,18 85,18 80,22 82,28 76,24 70,28 72,22 67,18 73,18" fill="#FFC72C"/>
-                            <defs>
-                                <linearGradient id="cyanBlueHero" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#00A3C4" />
-                                    <stop offset="100%" stop-color="#0072CE" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
+
+                <!-- メインキャッチコピー -->
+                <h1 class="hero-copy">
+                    アスリートの<br>
+                    <span class="highlight">挑戦</span>を、<br>
+                    事務から<span class="highlight">支える。</span>
+                </h1>
+
+                <!-- 3つの丸型アイコン -->
+                <div class="hero-services">
+                    <div class="service-circle">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        <span>契約・申請<br>サポート</span>
                     </div>
-                    <div class="logo-speech">「事務・経理のストレスからあなたを解放！」</div>
+                    <div class="service-circle">
+                        <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"></path></svg>
+                        <span>経理・会計<br>サポート</span>
+                    </div>
+                    <div class="service-circle">
+                        <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path><polyline points="12 13 12 9 12 13"></polyline><polyline points="9 11 12 8 15 11"></polyline></svg>
+                        <span>データ管理<br>サポート</span>
+                    </div>
                 </div>
+
+                <!-- 白枠カプセル -->
+                <div class="capsule-badge">
+                    個人事業主・フリーランスアスリートの頼れるパートナー
+                </div>
+
+            </div>
+
+            <!-- 右側：お送りいただいたキービジュアル画像/マルトくん -->
+            <div class="hero-right">
+                <img src="mascot.png" alt="マルトくん" class="mascot-hero-img">
             </div>
         </div>
     </section>
+
+    <!-- 下部相談ボタン -->
+    <div class="hero-action">
+        <a href="contact.html" class="btn-cta">今すぐ無料相談してみる ➔</a>
+    </div>
 
     <section class="sec">
         <h2 class="sec-title">まるっとオフィスができること</h2>
         <div class="grid">
             <div class="card">
-                <h3>📄 契約・申請サポート</h3>
-                <p>スポンサー契約や各種申請など、難しくて面倒な書類手続きをしっかり代行・サポートします。</p>
+                <h3>📄 契約・各種申請サポート</h3>
+                <p>スポンサー企業様との契約書チェックや各種手続きなど、面倒な書類関係をしっかりサポートします。</p>
             </div>
             <div class="card">
                 <h3>🧮 経理・会計サポート</h3>
-                <p>毎月のおこづかい帳感覚でOK！領収書の整理から確定申告の準備までプロが丁寧に行います。</p>
+                <p>溜まりがちな領収書の整理から確定申告の準備まで丸投げOK！練習や本業に集中できます。</p>
             </div>
             <div class="card">
-                <h3>☁️ データ管理サポート</h3>
-                <p>大切な顧客データや提出ファイルをクラウドにきれいに整理整頓し、いつでも使えるようにします。</p>
+                <h3>☁️ データ整理・管理サポート</h3>
+                <p>散らかりがちな顧客データや重要ファイルをクラウド上で整理整頓し、スムーズな環境を作ります。</p>
             </div>
         </div>
     </section>
