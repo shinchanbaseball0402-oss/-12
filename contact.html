@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>無料相談 | まるっとオフィス</title>
+    <style>
+        :root { --primary-blue: #0072CE; --primary-cyan: #00A3C4; --dark-blue: #0A2540; --bg-light: #F4F8FA; --text-color: #2D3748; --white: #FFFFFF; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-color); background: var(--bg-light); line-height: 1.6; }
+
+        header { background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .header-in { max-width: 1200px; margin: 0 auto; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 48px; width: auto; object-fit: contain; }
+        .logo-text { font-size: 22px; font-weight: bold; color: var(--dark-blue); }
+
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav a { text-decoration: none; color: var(--text-color); font-weight: bold; font-size: 15px; }
+        nav a.active { color: var(--primary-blue); }
+        .btn-nav { background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); color: var(--white) !important; padding: 10px 20px; border-radius: 25px; }
+
+        .page-banner { background: var(--dark-blue); color: var(--white); text-align: center; padding: 40px 20px; }
+        
+        .form-card { max-width: 600px; margin: 50px auto; background: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 14px; color: var(--dark-blue); }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #CBD5E0; border-radius: 8px; font-size: 15px; }
+        
+        .btn-submit { width: 100%; background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); color: var(--white); border: none; padding: 16px; font-size: 18px; font-weight: bold; border-radius: 30px; cursor: pointer; }
+
+        footer { background: var(--dark-blue); color: #A0AEC0; text-align: center; padding: 30px 20px; font-size: 14px; margin-top: 80px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-in">
+            <a href="index.html" class="logo-area">
+                <img src="logo.png" alt="まるっとオフィス ロゴ" class="logo-img">
+                <span class="logo-text">まるっとオフィス</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="services.html">サービス内容</a></li>
+                    <li><a href="features.html">メリット・デメリット</a></li>
+                    <li><a href="contact.html" class="btn-nav active">無料相談</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-banner">
+        <h1>無料相談・お問い合わせ</h1>
+        <p>マルトくんと一緒に最適なバックオフィス体制を整えましょう！</p>
+    </div>
+
+    <div class="form-card">
+        <form action="#" method="post">
+            <div class="form-group">
+                <label>お名前</label>
+                <input type="text" placeholder="例：山田 太郎" required>
+            </div>
+            <div class="form-group">
+                <label>ご職業・カテゴリー</label>
+                <select>
+                    <option>アスリート</option>
+                    <option>個人事業主・フリーランス</option>
+                    <option>その他</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>メールアドレス</label>
+                <input type="email" placeholder="example@email.com" required>
+            </div>
+            <div class="form-group">
+                <label>ご相談内容</label>
+                <textarea rows="5" placeholder="お困りの事務作業やサポートしてほしい内容をご記入ください。"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">送信する（無料相談）</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 まるっとオフィス All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
