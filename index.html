@@ -31,7 +31,7 @@
         nav a.active, nav a:hover { color: var(--primary-blue); }
         .btn-nav { background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); color: var(--white) !important; padding: 10px 22px; border-radius: 25px; }
 
-        /* 👑 キービジュアル忠実再現 ヒーローセクション 👑 */
+        /* ヒーローセクション */
         .hero {
             position: relative;
             background: linear-gradient(180deg, #FFFFFF 0%, #E3F2FD 60%, #0072CE 100%);
@@ -54,7 +54,7 @@
             padding-bottom: 50px;
         }
 
-        /* 画像左上の「まるっとオフィス」ロゴ＋テキスト配置 */
+        /* 画像左上のロゴ表示部分 */
         .hero-brand {
             display: flex;
             align-items: center;
@@ -63,7 +63,7 @@
         }
 
         .hero-logo-img {
-            height: 70px;
+            height: 75px;
             width: auto;
             object-fit: contain;
         }
@@ -76,7 +76,6 @@
             letter-spacing: -0.5px;
         }
 
-        /* 画像そのままの迫力あるキャッチコピー */
         .hero-copy {
             font-size: 48px;
             font-weight: 900;
@@ -90,7 +89,6 @@
             color: var(--primary-blue);
         }
 
-        /* 3つの円形機能アイコン */
         .hero-services {
             display: flex;
             gap: 15px;
@@ -129,7 +127,6 @@
             line-height: 1.25;
         }
 
-        /* 画像下部のカプセル枠（角丸白枠） */
         .capsule-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.2);
@@ -142,7 +139,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* 右側キャラクター（マルトくん）表示 */
         .hero-right {
             text-align: center;
         }
@@ -155,7 +151,6 @@
             object-fit: contain;
         }
 
-        /* 下部コンバージョン（相談ボタン） */
         .hero-action {
             background: var(--primary-blue);
             text-align: center;
@@ -177,7 +172,6 @@
 
         .btn-cta:hover { transform: scale(1.03); }
 
-        /* 下部コンテンツ */
         .sec { max-width: 1100px; margin: 70px auto; padding: 0 20px; }
         .sec-title { text-align: center; font-size: 28px; color: var(--dark-blue); margin-bottom: 40px; font-weight: 800; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
@@ -199,7 +193,7 @@
     <header>
         <div class="header-in">
             <a href="index.html" class="logo-area">
-                <img src="logo.png" alt="ロゴ" class="logo-img-header" onerror="this.style.display='none'">
+                <img src="logo.png" alt="ロゴ" class="logo-img-header">
                 <span class="logo-text">まるっとオフィス</span>
             </a>
             <nav>
@@ -214,25 +208,22 @@
         </div>
     </header>
 
-    <!-- 👑 キービジュアル完全再現 👑 -->
     <section class="hero">
         <div class="hero-inner">
             <div class="hero-left">
                 
-                <!-- ロゴ＋まるっとオフィス -->
+                <!-- ロゴ表示枠 -->
                 <div class="hero-brand">
                     <img src="logo.png" alt="まるっとオフィス ロゴ" class="hero-logo-img">
                     <div class="hero-brand-text">まるっと<br>オフィス</div>
                 </div>
 
-                <!-- メインキャッチコピー -->
                 <h1 class="hero-copy">
                     アスリートの<br>
                     <span class="highlight">挑戦</span>を、<br>
                     事務から<span class="highlight">支える。</span>
                 </h1>
 
-                <!-- 3つの丸型アイコン -->
                 <div class="hero-services">
                     <div class="service-circle">
                         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
@@ -248,21 +239,18 @@
                     </div>
                 </div>
 
-                <!-- 白枠カプセル -->
                 <div class="capsule-badge">
                     個人事業主・フリーランスアスリートの頼れるパートナー
                 </div>
 
             </div>
 
-            <!-- 右側：お送りいただいたキービジュアル画像/マルトくん -->
             <div class="hero-right">
                 <img src="mascot.png" alt="マルトくん" class="mascot-hero-img">
             </div>
         </div>
     </section>
 
-    <!-- 下部相談ボタン -->
     <div class="hero-action">
         <a href="contact.html" class="btn-cta">今すぐ無料相談してみる ➔</a>
     </div>
